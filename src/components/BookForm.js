@@ -12,7 +12,33 @@ const BookForm = (props) => {
   });
 
   const [errorMsg, setErrorMsg] = useState('');
-  const { bookname, author, price, quantity } = book;
+  const { bookName, author, price, quantity } = book;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const values = [bookName, author, price, quantity];
+    let errorMsg = '';
+
+    const allFieldsFilled = values.every((field) => {
+      const value = `${field}`.trim();
+      return value !== '' && value !== '0';
+    });
+
+    if (allFieldsFilled) {
+      const book = {
+        id: uuidv4(),
+        bookName,
+        author,
+        price,
+        quantity,
+        date: new Date()
+      };
+      props.handleSubmit(book);
+    } else {
+      errorMsg = 'Please fill out all fields.';
+    }
+    setErrorMsg(errorMsg);
+  };
 }
 
 export default BookForm;
