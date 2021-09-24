@@ -71,6 +71,61 @@ const BookForm = (props) => {
         }));
     }
   };
+
+  return (
+    <div className="main-form">
+      {errorMsg && <p className="errorMsg">{errorMsg}</p>}
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="name">
+          <Form.Label>Book Name</Form.Label>
+          <Form.Control
+            className="input-control"
+            text="text"
+            name="bookName"
+            value={bookName}
+            placeholder="Enter name of book"
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="author">
+          <Form.Label>Book Author</Form.Label>
+          <Form.Control
+            className="input-control"
+            text="text"
+            name="author"
+            value={author}
+            placeholder="Enter name of author"
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="quantity">
+          <Form.Label>Quantity</Form.Label>
+          <Form.Control
+            className="input-control"
+            text="number"
+            name="quantity"
+            value={quantity}
+            placeholder="Enter available quantity"
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="price">
+          <Form.Label>Book Price</Form.Label>
+          <Form.Control
+            className="input-control"
+            text="text"
+            name="price"
+            value={price}
+            placeholder="Enter price of book"
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" className="submit-btn">
+          Submit
+        </Button>
+      </Form>
+    </div>
+  );
 };
 
 export default BookForm;
