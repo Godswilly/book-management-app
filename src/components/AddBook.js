@@ -3,13 +3,13 @@ import BookForm from './BookForm';
 
 const AddBook = () => {
   const handleSubmit = (book) => {
-    console.log(book);
+    // console.log(book);
   };
 
   return (
-    <React.Fragment>
+    <>
       <BookForm handleSubmit={handleSubmit} />
-    </React.Fragment>
+    </>
   );
 };
 
