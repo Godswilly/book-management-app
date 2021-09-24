@@ -10,6 +10,9 @@ const BookForm = (props) => {
     price: props.price ? props.book.price : '',
     date: props.date ? props.book.date : '',
   });
+
+  const [errorMsg, setErrorMsg] = useState('');
+  const { bookname, author, price, quantity } = book;
 }
 
 export default BookForm;
