@@ -2,26 +2,24 @@ import React from 'react';
 import {
   BrowserRouter,
   Switch,
-  Route
+  Route,
 } from 'react-router-dom';
 import Header from '../components/Header';
 import AddBook from '../components/AddBook';
 import BookLists from '../components/BookLists';
 
-const AppRouter = () => {
-  return (
-    <BrowserRouter>
+const AppRouter = () => (
+  <BrowserRouter>
+    <div>
+      <Header />
       <div>
-        <Header />
-        <div>
-          <Switch>
-            <Route path="/" exact={true} component={BookLists} />
-            <Route path="/add" component={AddBook} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/" exact component={BookLists} />
+          <Route path="/add" component={AddBook} />
+        </Switch>
       </div>
-    </BrowserRouter>
-  );
-};
+    </div>
+  </BrowserRouter>
+);
 
 export default AppRouter;
