@@ -7,19 +7,29 @@ import {
 import Header from '../components/Header';
 import AddBook from '../components/AddBook';
 import BookLists from '../components/BookLists';
+import useLocalStorage from '../hooks/useLocalStorage';
 
-const AppRouter = () => (
+const AppRouter = () => {
+  const [books, setBooks] = useLocalStorage('books', []);
+
+  return (
   <BrowserRouter>
     <div>
       <Header />
-      <div>
+      <div className="main-content">
         <Switch>
           <Route path="/" exact component={BookLists} />
-          <Route path="/add" component={AddBook} />
+          <Route
+            render={(props) => (
+              <AddBook {...props} books={books} setBooks={setBooks} />
+            )}
+            path="/add"
+          />
         </Switch>
       </div>
     </div>
   </BrowserRouter>
-);
+  )
+}
 
 export default AppRouter;
