@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 
 const Book = ({
@@ -10,6 +11,8 @@ const Book = ({
   date,
   handleRemoveBook
 }) => {
+  const history = useHistory();
+
   return (
     <>
       <Card style={{ width: '18rem' }} className="book">
@@ -21,7 +24,9 @@ const Book = ({
             <div>Price: {price}</div>
             <div>Date: {new Date(date).toDateString()}</div>
           </div>
-          <Button variant="primary">Edit</Button>{''}
+          <Button variant="primary" onClick={() => history.push(`/edit/${id}`)}>
+            Edit
+          </Button>{''}
           <Button variant="danger" onClick={() => handleRemoveBook(id)}>
             Delete
           </Button>
