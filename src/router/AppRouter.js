@@ -31,6 +31,13 @@ const AppRouter = () => {
             )}
             path="/add"
           />
+          <Route
+            render={(props) => (
+              <EditBook {...props} books={books} setBooks={setBooks} />
+            )}
+            path="/edit/:id"
+          />
+          <Route component={() => <Ridirect to="/" />}/>
         </Switch>
       </div>
     </div>
