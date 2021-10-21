@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import AddBook from '../components/AddBook';
 import BookLists from '../components/BookLists';
 import useLocalStorage from '../hooks/useLocalStorage';
+import BooksContext from '../context/BooksContext';
 
 const AppRouter = () => {
   const [books, setBooks] = useLocalStorage('books', []);
@@ -17,28 +18,14 @@ const AppRouter = () => {
     <div>
       <Header />
       <div className="main-content">
-        <Switch>
-          <Route
-            render={(props) => (
-              <BookLists {...props} books={books} setBooks={setBooks} />
-            )}
-            path="/"
-            exact={true}
-          />
-          <Route
-            render={(props) => (
-              <AddBook {...props} books={books} setBooks={setBooks} />
-            )}
-            path="/add"
-          />
-          <Route
-            render={(props) => (
-              <EditBook {...props} books={books} setBooks={setBooks} />
-            )}
-            path="/edit/:id"
-          />
-          <Route component={() => <Ridirect to="/" />}/>
-        </Switch>
+        <BooksContext.Provider value={{books, setBooks}}>
+          <Switch>
+            <Route component={BookLists} path="/" exact={true} />
+            <Route component={AddBook} path="/add" />
+            <Route component={EditBook} path="/edit/:id" />
+            <Route component={() => <Ridirect to="/" />} />
+          </Switch>
+        </BooksContext.Provider>
       </div>
     </div>
   </BrowserRouter>
