@@ -9,7 +9,7 @@ const Book = ({
   price,
   quantity,
   date,
-  handleRemoveBook
+  handleRemoveBook,
 }) => {
   const history = useHistory();
 
