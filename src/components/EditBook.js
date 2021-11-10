@@ -7,7 +7,7 @@ const EditBook = ({ history }) => {
   const { books, setBooks } = useContext(BookContext);
   const { id } = useParams();
   const bookToEdit = books.find((book) => book.id === id);
-  
+
   const handleSubmit = (book) => {
     const filteredBooks = books.filter((book) => book.id !== id);
     setBooks([book, ...filteredBooks]);
@@ -16,7 +16,7 @@ const EditBook = ({ history }) => {
 
   return (
     <div>
-      <BookForm book={bookToEdit} handleSubmit={handleSubmit}/>
+      <BookForm book={bookToEdit} handleSubmit={handleSubmit} />
     </div>
   );
 };

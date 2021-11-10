@@ -5,9 +5,9 @@ import BookContext from '../context/BooksContext';
 
 const BookLists = () => {
   const { books, setBooks } = useContext(BookContext);
-  
+
   const handleRemoveBook = (id) => {
-    setBooks(books.filter((book) => book.id != id));
+    setBooks(books.filter((book) => book.id !== id));
   };
 
   return (

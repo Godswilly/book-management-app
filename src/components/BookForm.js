@@ -9,7 +9,7 @@ const BookForm = (props) => {
       author: props.book ? props.book.author : '',
       quantity: props.book ? props.book.quantity : '',
       price: props.book ? props.book.price : '',
-      date: props.book ? props.book.date : ''
+      date: props.book ? props.book.date : '',
     };
   });
 
