@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
 import BookForm from './BookForm';
 import BookContext from '../context/BooksContext';
 
@@ -15,6 +16,10 @@ const AddBook = ({ history }) => {
       <BookForm handleSubmit={handleSubmit} />
     </>
   );
+};
+
+AddBook.propTypes = {
+  history: PropTypes.string.isRequired,
 };
 
 export default AddBook;
