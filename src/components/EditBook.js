@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import BookContext from '../context/BooksContext';
 import BookForm from './BookForm';
 
@@ -19,6 +20,10 @@ const EditBook = ({ history }) => {
       <BookForm book={bookToEdit} handleSubmit={handleSubmit} />
     </div>
   );
+};
+
+EditBook.propTypes = {
+  history: PropTypes.string.isRequired,
 };
 
 export default EditBook;
