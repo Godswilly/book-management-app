@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -128,6 +129,16 @@ const BookForm = (props) => {
       </Form>
     </div>
   );
+};
+
+BookForm.propTypes = {
+  book: PropTypes.string.isRequired,
+  bookName: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default BookForm;
