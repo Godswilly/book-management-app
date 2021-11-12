@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Button, Card } from 'react-bootstrap';
 
@@ -47,6 +48,16 @@ const Book = ({
       </Card>
     </>
   );
+};
+
+Book.propTypes = {
+  id: PropTypes.string.isRequired,
+  bookName: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
+  quantity: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  handleRemoveBook: PropTypes.func.isRequired,
 };
 
 export default Book;
